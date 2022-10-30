@@ -32,12 +32,13 @@ namespace Api_Template.Utils
         internal static object RemoveMulta(string id)
         {
             var entities = new TelepeajeEntities();
-            var lista = entities.Transacciones.ToList();
-            var obj = lista.Find(x => x.ID_Transacciones.ToString() == id);            
-            var removeExitoso = lista.Remove(obj);
-            if (!removeExitoso) return null;
+            var lista = entities.Transacciones;
+            var obj = lista.ToList().Find(x => x.ID_Transacciones.ToString() == id);
+            if (obj == null) return null;
+            var removeExitoso = new MultasDTO(lista.Remove(obj));
+            if (removeExitoso == null) return null;
             entities.SaveChanges();
-            return new MultasDTO(obj);
+            return removeExitoso;
         }
     }
 }

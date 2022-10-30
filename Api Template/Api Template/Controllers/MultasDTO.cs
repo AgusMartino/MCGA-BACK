@@ -8,7 +8,7 @@ namespace Api_Template.Controllers
         public MultasDTO(Transacciones x)
         {
             id = x.ID_Transacciones.ToString();
-            patente = x.Patente.ToString();
+            patente = x.Patente != null ? x.Patente.ID_Patente.ToString() : string.Empty;
             estado = x.Estado.ToString();
             fecha = x.Fecha;
             precio = x.Precio;
