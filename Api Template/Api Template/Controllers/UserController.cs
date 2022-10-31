@@ -5,6 +5,7 @@ using Api_Template.Entities;
 using Api_Template.Models.Template;
 using Api_Template.Utils;
 using Api_Template.Entities.Exceptions;
+using Api_Template.Contracts;
 
 namespace Api_Template.Controllers
 {

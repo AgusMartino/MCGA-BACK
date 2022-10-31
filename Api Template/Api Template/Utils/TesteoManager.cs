@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Api_Template.Models.Template;
 using Api_Template.Entities;
 using Api_Template.Contracts;
 using System;
 using System.Linq;
+using Api_Template.Models.Template;
 
 namespace Api_Template.Utils
 {
@@ -23,7 +23,16 @@ namespace Api_Template.Utils
         {
             using (var db = new TemplateEntities())
             {
-                return db.Usuario.ToList();
+                var regs = (from v in db.Permiso.ToList()
+                            where v.Estado == true && v.Permiso1 != null
+                            select v
+                            ).ToList();
+
+                regs[2].Permiso1 = null;
+
+                db.SaveChanges();
+
+                return null;
             }
         }
     }
