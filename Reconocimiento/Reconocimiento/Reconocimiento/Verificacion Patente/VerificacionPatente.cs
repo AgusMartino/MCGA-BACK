@@ -25,7 +25,9 @@ namespace Reconocimiento.Verificacion_Patente
             using (var db = new TELEPEAJE())
             {
                 var patente = db.Patente.Where(x =>
-                    x.Patente1 == mensaje).ToList().FirstOrDefault();
+                    x.Patente1 == mensaje &&
+                    x.Telepeaje == true).ToList().FirstOrDefault();
+
 
                 if (patente == null)
                 {
