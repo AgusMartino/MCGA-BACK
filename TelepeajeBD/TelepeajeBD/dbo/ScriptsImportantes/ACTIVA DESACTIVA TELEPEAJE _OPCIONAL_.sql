@@ -1,0 +1,9 @@
+﻿-------------DESACTIVAR TELEPEAJE
+UPDATE TELEPEAJE.DBO.Patente
+SET Telepeaje=0
+WHERE Patente='MMM 001';
+
+-------------ACTIVAR TELEPEAJE
+UPDATE TELEPEAJE.DBO.Patente
+SET Telepeaje=1
+WHERE Patente='MMM 001';

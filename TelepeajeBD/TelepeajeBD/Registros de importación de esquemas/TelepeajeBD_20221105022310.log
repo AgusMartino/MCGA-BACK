@@ -1,0 +1,84 @@
+4/11/2022 11:23:10 p. m.	Este registro contiene información acerca de la operación de importación de esquema en el proyecto 'TelepeajeBD' del equipo 'DESKTOP-83PML5M' por el usuario 'fffes'.
+4/11/2022 11:23:10 p. m.	Se inició la importación del esquema de la base de datos.
+4/11/2022 11:23:14 p. m.	Recopilando credenciales de la base de datos
+4/11/2022 11:23:14 p. m.	Recopilando opciones de base de datos
+4/11/2022 11:23:14 p. m.	Recopilando usuarios
+4/11/2022 11:23:14 p. m.	Recopilando roles
+4/11/2022 11:23:14 p. m.	Recopilando roles de aplicación
+4/11/2022 11:23:14 p. m.	Recopilando pertenencias a roles
+4/11/2022 11:23:14 p. m.	Recopilando grupos de archivos
+4/11/2022 11:23:14 p. m.	Recopilando catálogos de texto completo
+4/11/2022 11:23:14 p. m.	Recopilando ensamblados
+4/11/2022 11:23:14 p. m.	Recopilando certificados
+4/11/2022 11:23:14 p. m.	Recopilando claves asimétricas
+4/11/2022 11:23:14 p. m.	Recopilando claves simétricas
+4/11/2022 11:23:14 p. m.	Recopilando claves simétricas cifradas
+4/11/2022 11:23:14 p. m.	Recopilando esquemas
+4/11/2022 11:23:14 p. m.	Recopilando colecciones de esquemas XML
+4/11/2022 11:23:14 p. m.	Recopilando tipos de datos definidos por el usuario
+4/11/2022 11:23:14 p. m.	Recopilando tipos definidos por el usuario
+4/11/2022 11:23:14 p. m.	Recopilando tipos de tabla
+4/11/2022 11:23:14 p. m.	Recopilando claves únicas para tipos de tabla
+4/11/2022 11:23:14 p. m.	Recopilando claves principales para tipos de tabla
+4/11/2022 11:23:14 p. m.	Recopilando índices para tipos de tablas
+4/11/2022 11:23:14 p. m.	Recopilando restricciones CHECK para tipos de tabla
+4/11/2022 11:23:14 p. m.	Recopilando restricciones DEFAULT para tipos de tabla
+4/11/2022 11:23:14 p. m.	Recopilando funciones de partición
+4/11/2022 11:23:14 p. m.	Recopilando esquemas de partición
+4/11/2022 11:23:14 p. m.	Recopilando funciones
+4/11/2022 11:23:14 p. m.	Recopilando funciones cifradas
+4/11/2022 11:23:14 p. m.	Recopilando agregados
+4/11/2022 11:23:14 p. m.	Recopilando procedimientos
+4/11/2022 11:23:14 p. m.	Recopilando procedimientos cifrados
+4/11/2022 11:23:14 p. m.	Recopilando tablas
+4/11/2022 11:23:14 p. m.	Recopilando claves principales
+4/11/2022 11:23:14 p. m.	Recopilando restricciones UNIQUE
+4/11/2022 11:23:14 p. m.	Recopilando claves externas
+4/11/2022 11:23:14 p. m.	Recopilando restricciones DEFAULT
+4/11/2022 11:23:14 p. m.	Recopilando restricciones CHECK
+4/11/2022 11:23:14 p. m.	Recopilando vistas
+4/11/2022 11:23:14 p. m.	Recopilando vistas cifradas
+4/11/2022 11:23:14 p. m.	Recopilando índices
+4/11/2022 11:23:14 p. m.	Recopilando estadísticas
+4/11/2022 11:23:14 p. m.	Recopilando listas de palabras irrelevantes de índices de texto completo
+4/11/2022 11:23:14 p. m.	Recopilando listas de propiedades de búsqueda
+4/11/2022 11:23:14 p. m.	Recopilando propiedades de búsqueda
+4/11/2022 11:23:14 p. m.	Recopilando índices de texto completo
+4/11/2022 11:23:14 p. m.	Recopilando índices de almacenamiento de columnas
+4/11/2022 11:23:14 p. m.	Recopilando índices espaciales
+4/11/2022 11:23:14 p. m.	Recopilando índices XML
+4/11/2022 11:23:14 p. m.	Recopilando índices XML selectivos
+4/11/2022 11:23:14 p. m.	Recopilando desencadenadores cifrados
+4/11/2022 11:23:14 p. m.	Recopilando desencadenadores
+4/11/2022 11:23:14 p. m.	Recopilando DDL triggers cifrados y de CLR
+4/11/2022 11:23:14 p. m.	Recopilando DDL triggers
+4/11/2022 11:23:14 p. m.	Recopilando sinónimos
+4/11/2022 11:23:14 p. m.	Recopilando valores predeterminados
+4/11/2022 11:23:14 p. m.	Recopilando enlaces UDDT de restricción de datos
+4/11/2022 11:23:14 p. m.	Recopilando reglas
+4/11/2022 11:23:14 p. m.	Recopilando enlaces UDDT de restricción de datos
+4/11/2022 11:23:14 p. m.	Recopilando tipos de mensaje
+4/11/2022 11:23:14 p. m.	Recopilando colas
+4/11/2022 11:23:14 p. m.	Recopilando contratos
+4/11/2022 11:23:14 p. m.	Recopilando servicios
+4/11/2022 11:23:14 p. m.	Recopilando notificaciones de eventos
+4/11/2022 11:23:14 p. m.	Recopilando enlaces de servicio remoto
+4/11/2022 11:23:14 p. m.	Recopilando prioridades de Broker
+4/11/2022 11:23:14 p. m.	Recopilando firmas
+4/11/2022 11:23:14 p. m.	Recopilando opciones de compresión de datos
+4/11/2022 11:23:14 p. m.	Recopilando tipos de secuencia
+4/11/2022 11:23:14 p. m.	Recopilando directivas de seguridad
+4/11/2022 11:23:14 p. m.	Recopilar claves de cifrado de columna
+4/11/2022 11:23:14 p. m.	Recopilando claves maestras de columna
+4/11/2022 11:23:14 p. m.	Recopilando orígenes de datos externos
+4/11/2022 11:23:14 p. m.	Recopilando formatos de archivo externos
+4/11/2022 11:23:14 p. m.	Recopilando tablas externas
+4/11/2022 11:23:14 p. m.	Recopilando propiedades extendidas
+4/11/2022 11:23:14 p. m.	Recopilando credenciales
+4/11/2022 11:23:14 p. m.	Recopilando inicios de sesión
+4/11/2022 11:23:14 p. m.	Recopilando auditorías de servidor
+4/11/2022 11:23:15 p. m.	Buscando elementos duplicados en el proyecto
+4/11/2022 11:23:15 p. m.	Ha finalizado el procesamiento de los elementos duplicados
+4/11/2022 11:23:15 p. m.	Finalizó la importación de la base de datos.
+4/11/2022 11:23:15 p. m.	Se guardó un resumen de la importación en la siguiente ubicación: F:\proyecto mcga\MCGA-BACK\TelepeajeBD\TelepeajeBD\Registros de importación de esquemas\TelepeajeBD_20221105022310.log
+4/11/2022 11:23:15 p. m.	Haga clic en Finalizar para continuar...

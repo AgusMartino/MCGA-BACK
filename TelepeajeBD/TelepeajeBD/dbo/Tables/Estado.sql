@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Estado] (
+    [ID_Estado] UNIQUEIDENTIFIER NOT NULL,
+    [Estado]    NVARCHAR (50)    NOT NULL,
+    CONSTRAINT [PK_Estado] PRIMARY KEY CLUSTERED ([ID_Estado] ASC)
+);
