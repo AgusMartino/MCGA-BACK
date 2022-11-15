@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TELEPEAJEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="ID_Estado" />
+    </Key>
+    <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patente">
+    <Key>
+      <PropertyRef Name="ID_Patente" />
+    </Key>
+    <Property Name="ID_Patente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_Tipo_Vehiculo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telepeaje" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Vehiculo">
+    <Key>
+      <PropertyRef Name="ID_Tipo_Vehiculo" />
+    </Key>
+    <Property Name="ID_Tipo_Vehiculo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Tipo_Vehiculo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Precio" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transacciones">
+    <Key>
+      <PropertyRef Name="ID_Transacciones" />
+    </Key>
+    <Property Name="ID_Transacciones" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_Patente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Precio" Type="money" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Patente_Tipo_Vehiculo">
+    <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="1" />
+    <End Role="Patente" Type="Self.Patente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Vehiculo">
+        <PropertyRef Name="ID_Tipo_Vehiculo" />
+      </Principal>
+      <Dependent Role="Patente">
+        <PropertyRef Name="ID_Tipo_Vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transacciones_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="ID_Estado" />
+      </Principal>
+      <Dependent Role="Transacciones">
+        <PropertyRef Name="ID_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transacciones_Patente">
+    <End Role="Patente" Type="Self.Patente" Multiplicity="1" />
+    <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patente">
+        <PropertyRef Name="ID_Patente" />
+      </Principal>
+      <Dependent Role="Transacciones">
+        <PropertyRef Name="ID_Patente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TELEPEAJEModelStoreContainer">
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Patente_Tipo_Vehiculo" Association="Self.FK_Patente_Tipo_Vehiculo">
+      <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+      <End Role="Patente" EntitySet="Patente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transacciones_Estado" Association="Self.FK_Transacciones_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Transacciones" EntitySet="Transacciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transacciones_Patente" Association="Self.FK_Transacciones_Patente">
+      <End Role="Patente" EntitySet="Patente" />
+      <End Role="Transacciones" EntitySet="Transacciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
