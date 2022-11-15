@@ -59,5 +59,18 @@ namespace Multa.DLL
                 } 
             }
         }
+
+        public bool EstadoServicio()
+        {
+            bool estado = false;
+            using (var db = new TELEPEAJE())
+            {
+                var state = db.Estado_Servicios.Where(x =>
+                    x.Nombre_Microservicio == "Multa").ToList().FirstOrDefault();
+
+                estado = state.Estado;
+            }
+            return estado;
+        }
     }
 }

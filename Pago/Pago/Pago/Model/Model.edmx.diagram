@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="285ae1e84b094bd7880e19f2c980ab32" Name="Diagram1">
+      <Diagram DiagramId="b1729ec2fb9e455b9b027309750dad85" Name="Diagram1">
         <EntityTypeShape EntityType="TELEPEAJEModel.Estado" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TELEPEAJEModel.Patente" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TELEPEAJEModel.Tipo_Vehiculo" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TELEPEAJEModel.Transacciones" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Estado_Servicios" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Estado" ManuallyRouted="false" />
         <AssociationConnector Association="TELEPEAJEModel.FK_Patente_Tipo_Vehiculo" ManuallyRouted="false" />
         <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Patente" ManuallyRouted="false" />

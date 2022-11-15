@@ -57,5 +57,18 @@ namespace Pago.DLL
             }
             return patente;
         }
+
+        public bool EstadoServicio()
+        {
+            bool estado = false;
+            using (var db = new TELEPEAJE())
+            {
+                var state = db.Estado_Servicios.Where(x =>
+                    x.Nombre_Microservicio == "Pago").ToList().FirstOrDefault();
+
+                estado = state.Estado;
+            }
+            return estado;
+        }
     }
 }
