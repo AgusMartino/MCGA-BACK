@@ -5,11 +5,16 @@ using System.Web;
 
 namespace GeneralApi.Entities
 {
-    public class TransitoDTO
+    public class TransaccionDTO
     {
-        public int cantidadTransito;
-        public int cantidadPorMulta;
-        public int cantidadPorPago;
-        public IList<object> cantidadPorTipoVehiculo;
+        public string tipoVehiculo;
+        public string patente;
+        public string estado;
+        public decimal monto;
+        public DateTime fecha;
+
+        public TransaccionDTO()
+        {
+        }
     }
 }

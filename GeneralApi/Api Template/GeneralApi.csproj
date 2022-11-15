@@ -322,6 +322,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TesteoController.cs" />
     <Compile Include="Controllers\TransitoController.cs" />
+    <Compile Include="Entities\Enums\CommonEnums.cs" />
     <Compile Include="Entities\Exceptions\AlreadyExistsException.cs" />
     <Compile Include="Entities\Exceptions\NotFoundException.cs" />
     <Compile Include="Entities\TransitoDTO.cs" />
