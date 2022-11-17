@@ -40,14 +40,14 @@ namespace GeneralApi.Controllers
         {
             try
             {
-                var objTransito = TransitoManager.GetPatentesReconocidas();
-                if (objTransito == null)
+                var patentesReconocidas = TransitoManager.GetPatentesReconocidas();
+                if (patentesReconocidas == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(objTransito);
+                    return Ok(patentesReconocidas);
                 }
             }
             catch (Exception ex)
@@ -55,18 +55,19 @@ namespace GeneralApi.Controllers
                 return InternalServerError(ex);
             }
         }
+        [HttpGet]
         public IHttpActionResult GetPatentesNoReconocidas()
         {
             try
             {
-                var objTransito = TransitoManager.GetPatentesNoReconocidas();
-                if (objTransito == null)
+                var patentesNoReconocidas = TransitoManager.GetPatentesNoReconocidas();
+                if (patentesNoReconocidas == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(objTransito);
+                    return Ok(patentesNoReconocidas);
                 }
             }
             catch (Exception ex)
@@ -74,6 +75,25 @@ namespace GeneralApi.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        [HttpGet]
+        public IHttpActionResult GetTotalFacturado()
+        {
+            try
+            {
+                var totalFacturado = TransitoManager.GetTotalFacturado();
+                if (totalFacturado == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(totalFacturado);
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
 }

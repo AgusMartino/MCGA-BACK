@@ -362,7 +362,7 @@
     <Compile Include="Utils\SerializationService.cs" />
     <Compile Include="Utils\SqlHelper.cs" />
     <Compile Include="Utils\TesteoManager.cs" />
-    <Compile Include="Utils\TransitoHelper.cs" />
+    <Compile Include="Utils\TransitoManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

@@ -25,17 +25,33 @@ namespace GeneralApi.Utils
         }
         public static List<TransaccionDTO> GetPatentesReconocidas()
         {
-            return GetMultasPorEstado(CommonEnums.TipoEstadoEnum.Pago.ToString());
+            return GetPatentesPorEstado(CommonEnums.TipoEstadoEnum.Pago.ToString());
         }
 
         public static List<TransaccionDTO> GetPatentesNoReconocidas()
         {
-            return GetMultasPorEstado(CommonEnums.TipoEstadoEnum.Multa.ToString());
+            return GetPatentesPorEstado(CommonEnums.TipoEstadoEnum.Multa.ToString());
+        }
+
+        public static object GetTotalFacturado()
+        {
+            var totalTransito = GetTransitoTotal();
+            decimal totalFacturado = 0;
+            foreach (var item in totalTransito)
+            {
+                totalFacturado += item.monto;
+            }
+            return new
+            {
+                totalFacturadoHastaFecha = DateTime.Now,
+                totalFacturadoMonto = String.Format("${0}", totalFacturado.ToString("0.00"))
+            };
         }
         #endregion
+
         #region Private methods
 
-        private static List<TransaccionDTO> GetMultasPorEstado(string estado)
+        private static List<TransaccionDTO> GetPatentesPorEstado(string estado)
         {
             using (var db = new TELEPEAJEEntities())
             {
@@ -71,6 +87,8 @@ namespace GeneralApi.Utils
                 return transitoGenerado.ToList();
             }
         }
+
+        
         #endregion
 
     }
