@@ -115,7 +115,45 @@ namespace GeneralApi.Utils
             }
         }
 
-        
+        public static bool UpdateValorVehiculo(string id, decimal nuevoValor)
+        {
+            using (var db = new TELEPEAJEEntities())
+            {
+                var t = db.Tipo_Vehiculo
+                    .Where(x => x.ID_Tipo_Vehiculo.ToString() == id)
+                    .First();
+                t.Precio = nuevoValor;
+                return db.SaveChanges() > 0;
+            }
+        }
+
+        public static bool UpdateValorMulta(decimal nuevoValor)
+        {
+            using (var db = new TELEPEAJEEntities())
+            {
+                var t = db.Tipo_Vehiculo
+                    .Where(x => x.Tipo_Vehiculo1 == "N/A")
+                    .First();
+                t.Precio = nuevoValor;
+                return db.SaveChanges() > 0;
+            }
+        }
+
+        public static object GetAllValoresMontos()
+        {
+            using (var db = new TELEPEAJEEntities())
+            {
+                var lista = (from t in db.Tipo_Vehiculo
+                             select new 
+                             {
+                                 id = t.ID_Tipo_Vehiculo,
+                                 tipo = t.Tipo_Vehiculo1,
+                                 valor = t.Precio
+                             })
+                             .ToList();
+                return lista;
+            }
+        }
         #endregion
 
     }
