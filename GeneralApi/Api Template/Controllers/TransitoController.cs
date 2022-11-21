@@ -36,11 +36,11 @@ namespace GeneralApi.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetPatentesReconocidas()
+        public IHttpActionResult GetPagosEmitidos()
         {
             try
             {
-                var patentesReconocidas = TransitoManager.GetPatentesReconocidas();
+                var patentesReconocidas = TransitoManager.GetPagosEmitidos();
                 if (patentesReconocidas == null)
                 {
                     return NotFound();
@@ -56,11 +56,11 @@ namespace GeneralApi.Controllers
             }
         }
         [HttpGet]
-        public IHttpActionResult GetPatentesNoReconocidas()
+        public IHttpActionResult GetMultasEmitidas()
         {
             try
             {
-                var patentesNoReconocidas = TransitoManager.GetPatentesNoReconocidas();
+                var patentesNoReconocidas = TransitoManager.GetMultasEmitidas();
                 if (patentesNoReconocidas == null)
                 {
                     return NotFound();
@@ -88,6 +88,47 @@ namespace GeneralApi.Controllers
                 else
                 {
                     return Ok(totalFacturado);
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetCantidadVehiculosNoReconocidos()
+        {
+            try
+            {
+                var totalNoReconocidos = TransitoManager.GetCantidadVehiculosNoReconocidos();
+                if (totalNoReconocidos == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(totalNoReconocidos);
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+        [HttpGet]
+        public IHttpActionResult GetCantidadVehiculosReconocidos()
+        {
+            try
+            {
+                var totalReconocidos = TransitoManager.GetCantidadVehiculosReconocidos();
+                if (totalReconocidos == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(totalReconocidos);
                 }
             }
             catch (Exception ex)

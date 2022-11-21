@@ -23,15 +23,17 @@ namespace GeneralApi.Utils
             }
 
         }
-        public static List<TransaccionDTO> GetPatentesReconocidas()
+        public static List<TransaccionDTO> GetPagosEmitidos()
         {
             return GetPatentesPorEstado(CommonEnums.TipoEstadoEnum.Pago.ToString());
         }
 
-        public static List<TransaccionDTO> GetPatentesNoReconocidas()
+        public static List<TransaccionDTO> GetMultasEmitidas()
         {
             return GetPatentesPorEstado(CommonEnums.TipoEstadoEnum.Multa.ToString());
         }
+
+
 
         public static object GetTotalFacturado()
         {
@@ -47,6 +49,31 @@ namespace GeneralApi.Utils
                 totalFacturadoMonto = String.Format("${0}", totalFacturado.ToString("0.00"))
             };
         }
+
+        public static object GetCantidadVehiculosNoReconocidos()
+        {
+            var cant = GetTransitoTotal()
+                .Where(x => x.estado == CommonEnums.TipoEstadoEnum.Multa.ToString())
+                .Count();
+            return new
+            {
+                cantidadVehiculosNoReconocidos = cant,
+                fecha = DateTime.Now
+            };
+        }
+
+        public static object GetCantidadVehiculosReconocidos()
+        {
+            var cant = GetTransitoTotal()
+                .Where(x => x.estado == CommonEnums.TipoEstadoEnum.Pago.ToString())
+                .Count();
+            return new
+            {
+                cantidadVehiculosReconocidos = cant,
+                fecha = DateTime.Now
+            };
+        }
+
         #endregion
 
         #region Private methods
