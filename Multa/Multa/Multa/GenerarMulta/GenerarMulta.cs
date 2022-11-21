@@ -30,13 +30,14 @@ namespace Multa.GenerarMulta
             tipo_Vehiculo = DLL.DLL.Current.obtenerPrecio();
 
             //registro patente con multa
+            patente.ID_Patente = Guid.NewGuid();
             patente.ID_Tipo_Vehiculo = tipo_Vehiculo.ID_Tipo_Vehiculo;
             patente.Telepeaje = false;
             patente.Patente1 = mensaje;
             DLL.DLL.Current.registrarPatenteSinTelepeaje(patente);
 
             //registro transaccion de multa
-            transaccion.Patente = mensaje;
+            transaccion.ID_Patente = patente.ID_Patente;
             transaccion.ID_Estado = estado.ID_Estado;
             transaccion.Fecha = DateTime.Now;
             transaccion.Precio = tipo_Vehiculo.Precio;

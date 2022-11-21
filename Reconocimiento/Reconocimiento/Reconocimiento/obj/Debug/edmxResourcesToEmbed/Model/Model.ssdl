@@ -7,12 +7,23 @@
     <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Estado_Servicios">
+    <Key>
+      <PropertyRef Name="Nombre_Microservicio" />
+      <PropertyRef Name="Estado" />
+    </Key>
+    <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patente">
     <Key>
-      <PropertyRef Name="Patente" />
+      <PropertyRef Name="ID_Patente" />
     </Key>
-    <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Patente" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ID_Tipo_Vehiculo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Telepeaje" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Tipo_Vehiculo">
@@ -28,7 +39,7 @@
       <PropertyRef Name="ID_Transacciones" />
     </Key>
     <Property Name="ID_Transacciones" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Patente" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="Precio" Type="money" Nullable="false" />
@@ -62,10 +73,10 @@
     <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patente">
-        <PropertyRef Name="Patente" />
+        <PropertyRef Name="ID_Patente" />
       </Principal>
       <Dependent Role="Transacciones">
-        <PropertyRef Name="Patente" />
+        <PropertyRef Name="ID_Patente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -74,6 +85,12 @@
     <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Estado_Servicios].[Nombre_Microservicio] AS [Nombre_Microservicio], 
+    [Estado_Servicios].[Estado] AS [Estado]
+    FROM [dbo].[Estado_Servicios] AS [Estado_Servicios]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Patente_Tipo_Vehiculo" Association="Self.FK_Patente_Tipo_Vehiculo">
       <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
       <End Role="Patente" EntitySet="Patente" />

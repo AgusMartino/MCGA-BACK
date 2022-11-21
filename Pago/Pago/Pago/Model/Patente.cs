@@ -20,8 +20,9 @@ namespace Pago.Model
             this.Transacciones = new HashSet<Transacciones>();
         }
     
-        public string Patente1 { get; set; }
+        public System.Guid ID_Patente { get; set; }
         public System.Guid ID_Tipo_Vehiculo { get; set; }
+        public string Patente1 { get; set; }
         public bool Telepeaje { get; set; }
     
         public virtual Tipo_Vehiculo Tipo_Vehiculo { get; set; }

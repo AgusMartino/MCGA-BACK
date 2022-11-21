@@ -15,12 +15,12 @@ namespace Multa.Model
     public partial class Transacciones
     {
         public System.Guid ID_Transacciones { get; set; }
-        public string Patente { get; set; }
+        public System.Guid ID_Patente { get; set; }
         public System.Guid ID_Estado { get; set; }
         public System.DateTime Fecha { get; set; }
-        public int Precio { get; set; }
+        public decimal Precio { get; set; }
     
         public virtual Estado Estado { get; set; }
-        public virtual Patente Patente1 { get; set; }
+        public virtual Patente Patente { get; set; }
     }
 }

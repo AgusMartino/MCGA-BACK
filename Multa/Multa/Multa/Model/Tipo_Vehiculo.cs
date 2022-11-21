@@ -22,7 +22,7 @@ namespace Multa.Model
     
         public System.Guid ID_Tipo_Vehiculo { get; set; }
         public string Tipo_Vehiculo1 { get; set; }
-        public int Precio { get; set; }
+        public decimal Precio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Patente> Patente { get; set; }

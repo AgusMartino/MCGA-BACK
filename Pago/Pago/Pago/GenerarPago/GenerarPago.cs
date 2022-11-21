@@ -32,7 +32,7 @@ namespace Pago.GenerarPago
             Transacciones transaccion = new Transacciones();
             transaccion.ID_Transacciones = Guid.NewGuid();
             transaccion.ID_Estado = estado.ID_Estado;
-            transaccion.Patente = patente.Patente1;
+            transaccion.ID_Patente = patente.ID_Patente;
             transaccion.Fecha = DateTime.Now;
             transaccion.Precio = tipo.Precio;
             DLL.DLL.Current.registrarPago(transaccion);

@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a39045fe9d094145bf6771bc9ea793a7" Name="Diagram1">
-        <EntityTypeShape EntityType="TELEPEAJEModel.Estado" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TELEPEAJEModel.Patente" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TELEPEAJEModel.Tipo_Vehiculo" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TELEPEAJEModel.Transacciones" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TELEPEAJEModel.Estado_Servicios" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Estado" ManuallyRouted="false" />
-        <AssociationConnector Association="TELEPEAJEModel.FK_Patente_Tipo_Vehiculo" ManuallyRouted="false" />
-        <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Patente" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Estado" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Patente" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Tipo_Vehiculo" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Transacciones" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Estado_Servicios" Width="1.5" PointX="5.75" PointY="4.75" />
+        <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Estado" />
+        <AssociationConnector Association="TELEPEAJEModel.FK_Patente_Tipo_Vehiculo" />
+        <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Patente" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
