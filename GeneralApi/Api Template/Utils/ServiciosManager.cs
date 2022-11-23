@@ -51,6 +51,16 @@ namespace GeneralApi.Utils
             }
             return false;
         }
-        
+
+        public static object GetEstadoServicios()
+        {
+            using (var db = new TELEPEAJEEntities())
+            {
+                var listaServicios = (from _e in db.Estado_Servicios
+                         select new { nombre_servicio = _e.Nombre_Microservicio, encendido = _e.Estado })
+                         .ToList();
+                return listaServicios;
+            }
+        }
     }
 }

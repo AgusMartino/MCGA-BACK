@@ -89,5 +89,20 @@ namespace GeneralApi.Controllers
                 return InternalServerError(ex);
             }
         }
+        [HttpGet]
+        public IHttpActionResult GetEstadoServicios()
+        {
+            try
+            {
+                var objEstado = ServiciosManager.GetEstadoServicios();
+                if (objEstado == null)
+                    return NotFound();
+                return Ok(objEstado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
 }
