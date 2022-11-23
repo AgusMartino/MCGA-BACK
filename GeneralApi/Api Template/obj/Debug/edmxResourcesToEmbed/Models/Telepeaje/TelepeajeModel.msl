@@ -4,38 +4,46 @@
     <EntitySetMapping Name="Estadoes">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Estado">
         <MappingFragment StoreEntitySet="Estado">
-          <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
           <ScalarProperty Name="Estado1" ColumnName="Estado" />
+          <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Servicios">
+      <EntityTypeMapping TypeName="TELEPEAJEModel.Estado_Servicios">
+        <MappingFragment StoreEntitySet="Estado_Servicios">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Patentes">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Patente">
         <MappingFragment StoreEntitySet="Patente">
-          <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
-          <ScalarProperty Name="ID_Tipo_Vehiculo" ColumnName="ID_Tipo_Vehiculo" />
-          <ScalarProperty Name="Patente1" ColumnName="Patente" />
           <ScalarProperty Name="Telepeaje" ColumnName="Telepeaje" />
+          <ScalarProperty Name="Patente1" ColumnName="Patente" />
+          <ScalarProperty Name="ID_Tipo_Vehiculo" ColumnName="ID_Tipo_Vehiculo" />
+          <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tipo_Vehiculo">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Tipo_Vehiculo">
         <MappingFragment StoreEntitySet="Tipo_Vehiculo">
-          <ScalarProperty Name="ID_Tipo_Vehiculo" ColumnName="ID_Tipo_Vehiculo" />
-          <ScalarProperty Name="Tipo_Vehiculo1" ColumnName="Tipo_Vehiculo" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Tipo_Vehiculo1" ColumnName="Tipo_Vehiculo" />
+          <ScalarProperty Name="ID_Tipo_Vehiculo" ColumnName="ID_Tipo_Vehiculo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Transacciones">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Transaccione">
         <MappingFragment StoreEntitySet="Transacciones">
-          <ScalarProperty Name="ID_Transacciones" ColumnName="ID_Transacciones" />
-          <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
-          <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
+          <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
+          <ScalarProperty Name="ID_Transacciones" ColumnName="ID_Transacciones" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

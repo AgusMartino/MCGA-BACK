@@ -7,6 +7,13 @@
     <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Estado_Servicios">
+    <Key>
+      <PropertyRef Name="Nombre_Microservicio" />
+    </Key>
+    <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patente">
     <Key>
       <PropertyRef Name="ID_Patente" />
@@ -72,6 +79,7 @@
   </Association>
   <EntityContainer Name="TELEPEAJEModelStoreContainer">
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />

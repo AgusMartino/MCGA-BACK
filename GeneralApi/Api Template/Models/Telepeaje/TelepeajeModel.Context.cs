@@ -26,6 +26,7 @@ namespace GeneralApi.Models.Telepeaje
         }
     
         public virtual DbSet<Estado> Estadoes { get; set; }
+        public virtual DbSet<Estado_Servicios> Estado_Servicios { get; set; }
         public virtual DbSet<Patente> Patentes { get; set; }
         public virtual DbSet<Tipo_Vehiculo> Tipo_Vehiculo { get; set; }
         public virtual DbSet<Transaccione> Transacciones { get; set; }
