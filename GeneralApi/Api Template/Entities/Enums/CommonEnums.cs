@@ -12,5 +12,9 @@ namespace GeneralApi.Entities.Enums
             Multa,
             Pago
         }
+        public enum TipoServiciosEnum
+        {
+            Multa,Pago,Reconocimiento
+        }
     }
 }
