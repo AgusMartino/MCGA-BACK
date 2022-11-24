@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Results;
 using ApiGateway.Utils;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace ApiGateway.Controllers
 {
@@ -47,11 +52,17 @@ namespace ApiGateway.Controllers
             }
         }
         [HttpPost]
-        public IHttpActionResult Procesar(string a_procesar)
+        public IHttpActionResult Procesar(string a_procesar, string pro2)
         {
             try
             {
-                return Ok($"(procesado) {a_procesar}");
+                var controller = this.GetType().Name.Replace("Controller","");
+                var method_name = MethodBase.GetCurrentMethod().Name;
+                string[] method_params_values = { a_procesar, pro2 };
+                string[] method_params_names = MethodBase.GetCurrentMethod().GetParameters().Select(x => x.Name).ToArray();
+                var resp = GatewayService.Current.ParseRequest(RestSharp.Method.Get, controller, method_name, method_params_names, method_params_values);
+
+                return Ok(resp);
             }
             catch (Exception ex)
             {
@@ -65,19 +76,6 @@ namespace ApiGateway.Controllers
             try
             {
                 return Ok($"(procesado 2) {a_procesar}");
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
-        }
-
-        [HttpGet]
-        public IHttpActionResult GetFromDB()
-        {
-            try
-            {
-                return Ok(TesteoManager.Current.GetFromDB());
             }
             catch (Exception ex)
             {

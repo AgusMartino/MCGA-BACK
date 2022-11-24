@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ApiGateway.Models.Template;
 using ApiGateway.Entities;
 using ApiGateway.Contracts;
 using System;

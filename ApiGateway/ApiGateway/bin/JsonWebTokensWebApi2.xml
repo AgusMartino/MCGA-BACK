@@ -492,20 +492,5 @@
             También facilita la exportación e importación de elementos serializados.
             </summary>
         </member>
-        <member name="T:SL.Services.SqlHelper">
-            <summary>
-            Brinda una amplia gama de herramientas útiles relacionadas a SQL.
-            </summary>
-        </member>
-        <member name="M:SL.Services.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
-            <summary>
-            Set the connection, command, and then execute the command and only return one value.
-            </summary>
-        </member>
-        <member name="M:SL.Services.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
-            <summary>
-            Set the connection, command, and then execute the command with query and return the reader.
-            </summary>
-        </member>
     </members>
 </doc>

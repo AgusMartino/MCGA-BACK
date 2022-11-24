@@ -35,12 +35,12 @@ namespace GeneralApi.Controllers
             }
         }
         [HttpPost]
-        public IHttpActionResult Procesar(string a_procesar)
+        public IHttpActionResult Procesar(string a_procesar, string pro2)
         {
             try
             {
                 TesteoManager.Current.Procesar(a_procesar);
-                return Ok($"procesado {a_procesar}");
+                return Ok($"procesado {a_procesar} 2 {pro2}");
             }
             catch (NotFoundException ex)
             {
