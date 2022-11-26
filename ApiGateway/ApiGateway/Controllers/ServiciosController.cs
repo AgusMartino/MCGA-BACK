@@ -127,7 +127,7 @@ namespace ApiGateway.Controllers
                 var method_name = MethodBase.GetCurrentMethod().Name;
                 string[] method_params_values = { };
                 string[] method_params_names = MethodBase.GetCurrentMethod().GetParameters().Select(x => x.Name).ToArray();
-                var resp = GatewayService.Current.ParseRequest(RestSharp.Method.Put, controller, method_name, method_params_names, method_params_values);
+                var resp = GatewayService.Current.ParseRequest(RestSharp.Method.Get, controller, method_name, method_params_names, method_params_values);
 
                 return Ok(resp);
             }
