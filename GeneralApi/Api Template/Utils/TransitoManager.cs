@@ -54,6 +54,7 @@ namespace GeneralApi.Utils
         {
             var cant = GetTransitoTotal()
                 .Where(x => x.estado == CommonEnums.TipoEstadoEnum.Multa.ToString())
+                .GroupBy(x => x.patente)
                 .Count();
             return new
             {
@@ -66,6 +67,7 @@ namespace GeneralApi.Utils
         {
             var cant = GetTransitoTotal()
                 .Where(x => x.estado == CommonEnums.TipoEstadoEnum.Pago.ToString())
+                .GroupBy(x => x.patente)
                 .Count();
             return new
             {
