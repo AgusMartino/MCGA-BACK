@@ -10,6 +10,7 @@ namespace Pago
 {
     internal class Program
     {
+        static bool levantado = true;
         static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
@@ -34,25 +35,31 @@ namespace Pago
 
         static void ManageEstado(EventingBasicConsumer consumidor, IModel canal)
         {
-            bool estado = true;
             Action action = () =>
             {
-                if (estado == false || !checkEstado())
+                Console.WriteLine("Chequeo de estado");
+
+                var temp_estado = checkEstado();
+
+                if (temp_estado == false && levantado != false)
                 {
-                    canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
-                    estado = false;
-                    Console.WriteLine("Estado de servicio Inactivo");
+                    try
+                    {
+                        canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        levantado = false;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
-                else if (estado == false && checkEstado())
+                else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Pago", autoAck: true, consumer: consumidor);
-                    estado = true;
-                    Console.WriteLine("Estado de servicio Activo");
+                    levantado = true;
                 }
             };
-
             TaskTimer tk = new TaskTimer(action, 1500);
-
             tk.Start();
         }
 

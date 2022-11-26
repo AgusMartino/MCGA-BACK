@@ -11,6 +11,7 @@ namespace Reconocimiento
 {
     internal class Program
     {
+        static bool levantado = true;
         static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
@@ -24,6 +25,8 @@ namespace Reconocimiento
 
                 consumidor.Received += (model, ea) => Evento(model, ea);
 
+                canal.BasicConsume(queue: "Reconocimiento", autoAck: true, consumer: consumidor);
+
                 ManageEstado(consumidor, canal);
 
                 Console.WriteLine("Running on localhost");
@@ -35,21 +38,28 @@ namespace Reconocimiento
 
         static void ManageEstado(EventingBasicConsumer consumidor, IModel canal)
         {
-            bool estado = true;
-
             Action action = () =>
             {
                 Console.WriteLine("Chequeo de estado");
 
-                if (estado == false || !checkEstado())
+                var temp_estado = checkEstado();
+
+                if (temp_estado == false && levantado != false)
                 {
-                    canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
-                    estado = false;
+                    try
+                    {
+                        canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        levantado = false;
+                    }
+                    
+                    catch (Exception ex){
+                    
+                    }
                 }
-                else if (estado == false && checkEstado())
+                else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Reconocimiento", autoAck: true, consumer: consumidor);
-                    estado = true;
+                    levantado = true;
                 }
             };
 
@@ -66,21 +76,22 @@ namespace Reconocimiento
 
         static void Evento(object model, BasicDeliverEventArgs ea)
         {
-                var body = ea.Body.ToArray();
-                var mensaje = Encoding.UTF8.GetString(body);
-                Console.WriteLine($" [X] Patente {mensaje} Recibida");
-                //verificar patente en la base
-                bool verificacion = Verificacion_Patente.VerificacionPatente.Current.Verificacion(mensaje);
-                //enviar a pago
-                if (verificacion == true)
-                {
-                    EnvioPatente.EnvioPatente.Current.pago(mensaje);
-                }
-                //enviar a multa
-                if (verificacion == false)
-                {
-                    EnvioPatente.EnvioPatente.Current.multa(mensaje);
-                }
+            var body = ea.Body.ToArray();
+            var mensaje = Encoding.UTF8.GetString(body);
+            Console.WriteLine($" [X] Patente {mensaje} Recibida");
+            //verificar patente en la base
+            bool verificacion = Verificacion_Patente.VerificacionPatente.Current.Verificacion(mensaje);
+            //enviar a pago
+            if (verificacion == true)
+            {
+                EnvioPatente.EnvioPatente.Current.pago(mensaje);
+            }
+            //enviar a multa
+            if (verificacion == false)
+            {
+                EnvioPatente.EnvioPatente.Current.multa(mensaje);
+            }
         }
     }
 }
+

@@ -12,12 +12,9 @@
           <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Estado_Servicios">
           <Key>
             <PropertyRef Name="Nombre_Microservicio" />
-            <PropertyRef Name="Estado" />
           </Key>
           <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
@@ -87,15 +84,10 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
         </Association>
         <EntityContainer Name="TELEPEAJEModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Estado_Servicios].[Nombre_Microservicio] AS [Nombre_Microservicio], 
-    [Estado_Servicios].[Estado] AS [Estado]
-    FROM [dbo].[Estado_Servicios] AS [Estado_Servicios]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Patente_Tipo_Vehiculo" Association="Self.FK_Patente_Tipo_Vehiculo">
             <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
             <End Role="Patente" EntitySet="Patente" />
@@ -115,10 +107,10 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
       <Schema Namespace="TELEPEAJEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TELEPEAJE" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Estado" EntityType="TELEPEAJEModel.Estado" />
+          <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
           <EntitySet Name="Patente" EntityType="TELEPEAJEModel.Patente" />
           <EntitySet Name="Tipo_Vehiculo" EntityType="TELEPEAJEModel.Tipo_Vehiculo" />
           <EntitySet Name="Transacciones" EntityType="TELEPEAJEModel.Transacciones" />
-          <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
           <AssociationSet Name="FK_Transacciones_Estado" Association="TELEPEAJEModel.FK_Transacciones_Estado">
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Transacciones" EntitySet="Transacciones" />
@@ -139,6 +131,13 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
           <Property Name="ID_Estado" Type="Guid" Nullable="false" />
           <Property Name="Estado1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Transacciones" Relationship="TELEPEAJEModel.FK_Transacciones_Estado" FromRole="Estado" ToRole="Transacciones" />
+        </EntityType>
+        <EntityType Name="Estado_Servicios">
+          <Key>
+            <PropertyRef Name="Nombre_Microservicio" />
+          </Key>
+          <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Patente">
           <Key>
@@ -171,14 +170,6 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
           <Property Name="Precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <NavigationProperty Name="Estado" Relationship="TELEPEAJEModel.FK_Transacciones_Estado" FromRole="Transacciones" ToRole="Estado" />
           <NavigationProperty Name="Patente" Relationship="TELEPEAJEModel.FK_Transacciones_Patente" FromRole="Transacciones" ToRole="Patente" />
-        </EntityType>
-        <EntityType Name="Estado_Servicios">
-          <Key>
-            <PropertyRef Name="Nombre_Microservicio" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Transacciones_Estado">
           <End Type="TELEPEAJEModel.Estado" Role="Estado" Multiplicity="1" />
@@ -230,6 +221,14 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Servicios">
+            <EntityTypeMapping TypeName="TELEPEAJEModel.Estado_Servicios">
+              <MappingFragment StoreEntitySet="Estado_Servicios">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Patente">
             <EntityTypeMapping TypeName="TELEPEAJEModel.Patente">
               <MappingFragment StoreEntitySet="Patente">
@@ -257,14 +256,6 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
                 <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
                 <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
                 <ScalarProperty Name="ID_Transacciones" ColumnName="ID_Transacciones" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Estado_Servicios">
-            <EntityTypeMapping TypeName="TELEPEAJEModel.Estado_Servicios">
-              <MappingFragment StoreEntitySet="Estado_Servicios">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

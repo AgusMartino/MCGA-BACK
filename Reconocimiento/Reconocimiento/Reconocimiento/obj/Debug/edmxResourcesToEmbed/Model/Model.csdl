@@ -2,10 +2,10 @@
 <Schema Namespace="TELEPEAJEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="TELEPEAJE" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Estado" EntityType="TELEPEAJEModel.Estado" />
+    <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
     <EntitySet Name="Patente" EntityType="TELEPEAJEModel.Patente" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="TELEPEAJEModel.Tipo_Vehiculo" />
     <EntitySet Name="Transacciones" EntityType="TELEPEAJEModel.Transacciones" />
-    <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
     <AssociationSet Name="FK_Transacciones_Estado" Association="TELEPEAJEModel.FK_Transacciones_Estado">
       <End Role="Estado" EntitySet="Estado" />
       <End Role="Transacciones" EntitySet="Transacciones" />
@@ -26,6 +26,13 @@
     <Property Name="ID_Estado" Type="Guid" Nullable="false" />
     <Property Name="Estado1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Transacciones" Relationship="TELEPEAJEModel.FK_Transacciones_Estado" FromRole="Estado" ToRole="Transacciones" />
+  </EntityType>
+  <EntityType Name="Estado_Servicios">
+    <Key>
+      <PropertyRef Name="Nombre_Microservicio" />
+    </Key>
+    <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Patente">
     <Key>
@@ -58,14 +65,6 @@
     <Property Name="Precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <NavigationProperty Name="Estado" Relationship="TELEPEAJEModel.FK_Transacciones_Estado" FromRole="Transacciones" ToRole="Estado" />
     <NavigationProperty Name="Patente" Relationship="TELEPEAJEModel.FK_Transacciones_Patente" FromRole="Transacciones" ToRole="Patente" />
-  </EntityType>
-  <EntityType Name="Estado_Servicios">
-    <Key>
-      <PropertyRef Name="Nombre_Microservicio" />
-      <PropertyRef Name="Estado" />
-    </Key>
-    <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="FK_Transacciones_Estado">
     <End Type="TELEPEAJEModel.Estado" Role="Estado" Multiplicity="1" />

@@ -9,6 +9,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Servicios">
+      <EntityTypeMapping TypeName="TELEPEAJEModel.Estado_Servicios">
+        <MappingFragment StoreEntitySet="Estado_Servicios">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Patente">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Patente">
         <MappingFragment StoreEntitySet="Patente">
@@ -36,14 +44,6 @@
           <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
           <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
           <ScalarProperty Name="ID_Transacciones" ColumnName="ID_Transacciones" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Estado_Servicios">
-      <EntityTypeMapping TypeName="TELEPEAJEModel.Estado_Servicios">
-        <MappingFragment StoreEntitySet="Estado_Servicios">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -46,6 +46,23 @@ namespace Multa.DLL
                 return tipo_Vehiculo;
             }
         }
+
+        public Patente GetPatente(string mensaje)
+        {
+            
+            using(var db = new TELEPEAJE())
+            {
+                Patente patente = new Patente();
+                patente = db.Patente.Where(x => x.Patente1 == mensaje).ToList().FirstOrDefault();
+                if(patente == null)
+                {
+                    patente = new Patente();
+                    patente.Patente1 = mensaje;
+                    patente.ID_Patente = Guid.Empty;
+                }
+                return patente;
+            }
+        }
         public void registrarPatenteSinTelepeaje(Patente patente)
         {
             using (var db = new TELEPEAJE())

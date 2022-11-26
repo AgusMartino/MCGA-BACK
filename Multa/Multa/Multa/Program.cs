@@ -10,6 +10,7 @@ namespace Multa
 {
     internal class Program
     {
+        static bool levantado = true;
         static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
@@ -36,26 +37,31 @@ namespace Multa
 
         static void ManageEstado(EventingBasicConsumer consumidor, IModel canal)
         {
-            bool estado = true;
             Action action = () =>
             {
+                Console.WriteLine("Chequeo de estado");
 
-                if (estado == false || !checkEstado())
+                var temp_estado = checkEstado();
+
+                if (temp_estado == false && levantado != false)
                 {
-                    canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
-                    estado = false;
-                    Console.WriteLine("Estado de servicio Inactivo");
+                    try
+                    {
+                        canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        levantado = false;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
-                else if (estado == false && checkEstado())
+                else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Multa", autoAck: true, consumer: consumidor);
-                    estado = true;
-                    Console.WriteLine("Estado de servicio Activo");
+                    levantado = true;
                 }
             };
-
             TaskTimer tk = new TaskTimer(action, 1500);
-
             tk.Start();
         }
 

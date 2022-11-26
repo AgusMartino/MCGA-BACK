@@ -7,12 +7,9 @@
     <Property Name="ID_Estado" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Estado_Servicios">
     <Key>
       <PropertyRef Name="Nombre_Microservicio" />
-      <PropertyRef Name="Estado" />
     </Key>
     <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
@@ -82,15 +79,10 @@ advertencia 6002: La tabla o vista 'TELEPEAJE.dbo.Estado_Servicios' no tiene def
   </Association>
   <EntityContainer Name="TELEPEAJEModelStoreContainer">
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Estado_Servicios].[Nombre_Microservicio] AS [Nombre_Microservicio], 
-    [Estado_Servicios].[Estado] AS [Estado]
-    FROM [dbo].[Estado_Servicios] AS [Estado_Servicios]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Patente_Tipo_Vehiculo" Association="Self.FK_Patente_Tipo_Vehiculo">
       <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
       <End Role="Patente" EntitySet="Patente" />
