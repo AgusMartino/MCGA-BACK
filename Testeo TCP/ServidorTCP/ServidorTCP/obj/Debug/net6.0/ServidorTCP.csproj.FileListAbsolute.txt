@@ -1,0 +1,15 @@
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\bin\Debug\net6.0\ServidorTCP.exe
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\bin\Debug\net6.0\ServidorTCP.deps.json
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\bin\Debug\net6.0\ServidorTCP.runtimeconfig.json
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\bin\Debug\net6.0\ServidorTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\bin\Debug\net6.0\ServidorTCP.pdb
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.csproj.AssemblyReference.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.AssemblyInfoInputs.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.AssemblyInfo.cs
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.csproj.CoreCompileInputs.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\refint\ServidorTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.pdb
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ServidorTCP.genruntimeconfig.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ServidorTCP\ServidorTCP\obj\Debug\net6.0\ref\ServidorTCP.dll

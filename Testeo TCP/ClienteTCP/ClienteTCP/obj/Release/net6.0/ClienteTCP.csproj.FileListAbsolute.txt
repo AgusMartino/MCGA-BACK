@@ -1,0 +1,15 @@
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\bin\Release\net6.0\ClienteTCP.exe
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\bin\Release\net6.0\ClienteTCP.deps.json
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\bin\Release\net6.0\ClienteTCP.runtimeconfig.json
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\bin\Release\net6.0\ClienteTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\bin\Release\net6.0\ClienteTCP.pdb
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.csproj.AssemblyReference.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.AssemblyInfoInputs.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.AssemblyInfo.cs
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.csproj.CoreCompileInputs.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\refint\ClienteTCP.dll
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.pdb
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ClienteTCP.genruntimeconfig.cache
+D:\Proyectos\Estudio\UAI\Materias\MCGA\TP Final\MCGA-BACK\Testeo TCP\ClienteTCP\ClienteTCP\obj\Release\net6.0\ref\ClienteTCP.dll

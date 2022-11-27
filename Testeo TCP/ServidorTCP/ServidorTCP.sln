@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServidorTCP", "ServidorTCP\ServidorTCP.csproj", "{8EA339DD-E1CA-443F-8A4E-68DA531F86DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EA339DD-E1CA-443F-8A4E-68DA531F86DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA339DD-E1CA-443F-8A4E-68DA531F86DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA339DD-E1CA-443F-8A4E-68DA531F86DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA339DD-E1CA-443F-8A4E-68DA531F86DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0698FD9-AF19-4FB0-9E38-27EAC6CDF443}
+	EndGlobalSection
+EndGlobal
