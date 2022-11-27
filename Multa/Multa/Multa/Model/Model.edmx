@@ -19,6 +19,16 @@
           <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID_Log" />
+          </Key>
+          <Property Name="ID_Log" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Sistema" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Accion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Patente">
           <Key>
             <PropertyRef Name="ID_Patente" />
@@ -85,6 +95,7 @@
         <EntityContainer Name="TELEPEAJEModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
@@ -123,6 +134,7 @@
             <End Role="Patente" EntitySet="Patente" />
             <End Role="Transacciones" EntitySet="Transacciones" />
           </AssociationSet>
+          <EntitySet Name="Logs" EntityType="TELEPEAJEModel.Logs" />
         </EntityContainer>
         <EntityType Name="Estado">
           <Key>
@@ -207,6 +219,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID_Log" />
+          </Key>
+          <Property Name="ID_Log" Type="Guid" Nullable="false" />
+          <Property Name="Sistema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Accion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -256,6 +278,17 @@
                 <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
                 <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
                 <ScalarProperty Name="ID_Transacciones" ColumnName="ID_Transacciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="TELEPEAJEModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+                <ScalarProperty Name="ID_Log" ColumnName="ID_Log" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

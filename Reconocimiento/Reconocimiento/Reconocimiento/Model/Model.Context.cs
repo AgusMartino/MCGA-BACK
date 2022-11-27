@@ -27,6 +27,7 @@ namespace Reconocimiento.Model
     
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Estado_Servicios> Estado_Servicios { get; set; }
+        public virtual DbSet<Logs> Logs { get; set; }
         public virtual DbSet<Patente> Patente { get; set; }
         public virtual DbSet<Tipo_Vehiculo> Tipo_Vehiculo { get; set; }
         public virtual DbSet<Transacciones> Transacciones { get; set; }

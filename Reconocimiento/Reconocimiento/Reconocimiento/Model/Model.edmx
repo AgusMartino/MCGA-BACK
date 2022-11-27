@@ -19,6 +19,16 @@
           <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID_Log" />
+          </Key>
+          <Property Name="ID_Log" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Sistema" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Accion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Patente">
           <Key>
             <PropertyRef Name="ID_Patente" />
@@ -85,6 +95,7 @@
         <EntityContainer Name="TELEPEAJEModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
@@ -108,6 +119,7 @@
         <EntityContainer Name="TELEPEAJE" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Estado" EntityType="TELEPEAJEModel.Estado" />
           <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
+          <EntitySet Name="Logs" EntityType="TELEPEAJEModel.Logs" />
           <EntitySet Name="Patente" EntityType="TELEPEAJEModel.Patente" />
           <EntitySet Name="Tipo_Vehiculo" EntityType="TELEPEAJEModel.Tipo_Vehiculo" />
           <EntitySet Name="Transacciones" EntityType="TELEPEAJEModel.Transacciones" />
@@ -138,6 +150,16 @@
           </Key>
           <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID_Log" />
+          </Key>
+          <Property Name="ID_Log" Type="Guid" Nullable="false" />
+          <Property Name="Sistema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Accion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Patente">
           <Key>
@@ -226,6 +248,17 @@
               <MappingFragment StoreEntitySet="Estado_Servicios">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Nombre_Microservicio" ColumnName="Nombre_Microservicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="TELEPEAJEModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+                <ScalarProperty Name="ID_Log" ColumnName="ID_Log" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

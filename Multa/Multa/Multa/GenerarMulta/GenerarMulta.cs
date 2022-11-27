@@ -40,6 +40,7 @@ namespace Multa.GenerarMulta
                 patente.Telepeaje = false;
                 patente.Patente1 = mensaje;
                 DLL.DLL.Current.registrarPatenteSinTelepeaje(patente);
+                Logger.Logger.Current.Log("Se registra patente no existente", mensaje);
             }
             //registro transaccion de multa
             transaccion.ID_Patente = patente.ID_Patente;
@@ -48,6 +49,7 @@ namespace Multa.GenerarMulta
             transaccion.Precio = tipo_Vehiculo.Precio;
             transaccion.ID_Transacciones = Guid.NewGuid();
             DLL.DLL.Current.ingresarMulta(transaccion);
+            Logger.Logger.Current.Log("Se registra multa a patente no subscripta", mensaje);
         }
     }
 }

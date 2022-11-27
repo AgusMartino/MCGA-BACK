@@ -76,10 +76,14 @@
   <ItemGroup>
     <Compile Include="EnvioPatente\EnvioPatente.cs" />
     <Compile Include="EstadoServicio\EstadoServicio.cs" />
+    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Model\Estado.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Estado_Servicios.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Logs.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model.Context.cs">

@@ -25,6 +25,7 @@ namespace Multa
                 consumidor.Received += (model, ea) => Evento(model, ea);
 
                 canal.BasicConsume(queue: "Multa", autoAck: true, consumer: consumidor);
+                Logger.Logger.Current.Log("Se inicio servicio de Multas", "");
 
                 ManageEstado(consumidor, canal);
 
@@ -48,6 +49,7 @@ namespace Multa
                     try
                     {
                         canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        Logger.Logger.Current.Log("Apagar servicio de multas", "");
                         levantado = false;
                     }
                     catch (Exception ex)
@@ -58,6 +60,7 @@ namespace Multa
                 else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Multa", autoAck: true, consumer: consumidor);
+                    Logger.Logger.Current.Log("Prender servicio de multas", "");
                     levantado = true;
                 }
             };
@@ -77,6 +80,7 @@ namespace Multa
             var mensaje = Encoding.UTF8.GetString(body);
 
             Console.WriteLine($" [X] Patente {mensaje} Recibida");
+            Logger.Logger.Current.Log("Se recibio patente", mensaje);
             //generar multa
             GenerarMulta.GenerarMulta.Current.multa(mensaje);
             Console.WriteLine($" [X] Patente {mensaje} registrada con multa");

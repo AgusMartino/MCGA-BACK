@@ -26,6 +26,7 @@ namespace Reconocimiento
                 consumidor.Received += (model, ea) => Evento(model, ea);
 
                 canal.BasicConsume(queue: "Reconocimiento", autoAck: true, consumer: consumidor);
+                Logger.Logger.Current.Log("Se inicio servicio de Reconocimiento", "");
 
                 ManageEstado(consumidor, canal);
 
@@ -49,6 +50,7 @@ namespace Reconocimiento
                     try
                     {
                         canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        Logger.Logger.Current.Log("Apagar servicio de Reconocimiento", "");
                         levantado = false;
                     }
                     
@@ -59,6 +61,7 @@ namespace Reconocimiento
                 else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Reconocimiento", autoAck: true, consumer: consumidor);
+                    Logger.Logger.Current.Log("Prender servicio de Reconocimiento", "");
                     levantado = true;
                 }
             };
@@ -79,17 +82,20 @@ namespace Reconocimiento
             var body = ea.Body.ToArray();
             var mensaje = Encoding.UTF8.GetString(body);
             Console.WriteLine($" [X] Patente {mensaje} Recibida");
+            Logger.Logger.Current.Log("Se recibe patente", mensaje);
             //verificar patente en la base
             bool verificacion = Verificacion_Patente.VerificacionPatente.Current.Verificacion(mensaje);
             //enviar a pago
             if (verificacion == true)
             {
                 EnvioPatente.EnvioPatente.Current.pago(mensaje);
+                Logger.Logger.Current.Log("Eviando a servicio de pagos patente", mensaje);
             }
             //enviar a multa
             if (verificacion == false)
             {
                 EnvioPatente.EnvioPatente.Current.multa(mensaje);
+                Logger.Logger.Current.Log("Eviando a servicio de multas patente", mensaje);
             }
         }
     }

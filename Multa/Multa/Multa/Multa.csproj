@@ -80,10 +80,14 @@
   <ItemGroup>
     <Compile Include="DLL\DLL.cs" />
     <Compile Include="GenerarMulta\GenerarMulta.cs" />
+    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Model\Estado.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Estado_Servicios.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Logs.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model.Context.cs">
@@ -140,5 +144,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

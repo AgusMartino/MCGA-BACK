@@ -3,6 +3,7 @@
   <EntityContainer Name="TELEPEAJE" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Estado" EntityType="TELEPEAJEModel.Estado" />
     <EntitySet Name="Estado_Servicios" EntityType="TELEPEAJEModel.Estado_Servicios" />
+    <EntitySet Name="Logs" EntityType="TELEPEAJEModel.Logs" />
     <EntitySet Name="Patente" EntityType="TELEPEAJEModel.Patente" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="TELEPEAJEModel.Tipo_Vehiculo" />
     <EntitySet Name="Transacciones" EntityType="TELEPEAJEModel.Transacciones" />
@@ -33,6 +34,16 @@
     </Key>
     <Property Name="Nombre_Microservicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="ID_Log" />
+    </Key>
+    <Property Name="ID_Log" Type="Guid" Nullable="false" />
+    <Property Name="Sistema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Accion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Patente">
     <Key>

@@ -30,5 +30,6 @@ namespace Multa.Model
         public virtual DbSet<Patente> Patente { get; set; }
         public virtual DbSet<Tipo_Vehiculo> Tipo_Vehiculo { get; set; }
         public virtual DbSet<Transacciones> Transacciones { get; set; }
+        public virtual DbSet<Logs> Logs { get; set; }
     }
 }

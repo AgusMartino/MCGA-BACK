@@ -36,6 +36,7 @@ namespace Pago.GenerarPago
             transaccion.Fecha = DateTime.Now;
             transaccion.Precio = tipo.Precio;
             DLL.DLL.Current.registrarPago(transaccion);
+            Logger.Logger.Current.Log("Se genero solicitus de pago para la patente", mensaje);
 
         }
     }

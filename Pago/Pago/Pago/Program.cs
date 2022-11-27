@@ -46,6 +46,7 @@ namespace Pago
                     try
                     {
                         canal.BasicCancel(consumidor.ConsumerTags.FirstOrDefault());
+                        Logger.Logger.Current.Log("Apagar servicio de Pagos", "");
                         levantado = false;
                     }
                     catch (Exception ex)
@@ -56,6 +57,7 @@ namespace Pago
                 else if (temp_estado == true && levantado == false)
                 {
                     canal.BasicConsume(queue: "Pago", autoAck: true, consumer: consumidor);
+                    Logger.Logger.Current.Log("Prender servicio de Pagos", "");
                     levantado = true;
                 }
             };
@@ -75,6 +77,7 @@ namespace Pago
             var mensaje = Encoding.UTF8.GetString(body);
 
             Console.WriteLine($" [X] Patente {mensaje} Recibida");
+            Logger.Logger.Current.Log("Se recibio patente", mensaje);
             //generar pago
             GenerarPago.GenerarPago.Current.pago(mensaje);
             Console.WriteLine($" [X] Solicitud de pago de la Patente {mensaje} realizada");

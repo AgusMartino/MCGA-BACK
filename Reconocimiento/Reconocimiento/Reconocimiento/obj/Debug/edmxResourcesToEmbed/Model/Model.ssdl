@@ -14,6 +14,16 @@
     <Property Name="Nombre_Microservicio" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="ID_Log" />
+    </Key>
+    <Property Name="ID_Log" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sistema" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Accion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patente">
     <Key>
       <PropertyRef Name="ID_Patente" />
@@ -80,6 +90,7 @@
   <EntityContainer Name="TELEPEAJEModelStoreContainer">
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado_Servicios" EntityType="Self.Estado_Servicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patente" EntityType="Self.Patente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />

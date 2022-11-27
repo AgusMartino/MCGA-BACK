@@ -17,6 +17,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="TELEPEAJEModel.Logs">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Patente" ColumnName="Patente" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+          <ScalarProperty Name="ID_Log" ColumnName="ID_Log" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Patente">
       <EntityTypeMapping TypeName="TELEPEAJEModel.Patente">
         <MappingFragment StoreEntitySet="Patente">

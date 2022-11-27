@@ -13,6 +13,7 @@
         <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Estado" />
         <AssociationConnector Association="TELEPEAJEModel.FK_Patente_Tipo_Vehiculo" />
         <AssociationConnector Association="TELEPEAJEModel.FK_Transacciones_Patente" />
+        <EntityTypeShape EntityType="TELEPEAJEModel.Logs" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
